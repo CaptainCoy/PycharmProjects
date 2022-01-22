@@ -8,6 +8,11 @@ class Account(models.Model):
 
     Accounts = models.Manager()
 
+    # Allows references to a specific account be returned
+    # as the owner's name not the primary key
+    def __str__(self):
+        return self.first_name + " " + self.last_name
+
 
 TransactionTypes = [('Deposit', 'Deposit'), ('Withdrawal', 'Withdrawal')]
 
@@ -21,8 +26,5 @@ class Transaction(models.Model):
 
     Transactions = models.Manager()
 
-    # Allows references to a specific account be returned
-    # as the owner's name not the primary key
-    def __str__(self):
-        return self.First_name + " " + self.Last_name
+
 
