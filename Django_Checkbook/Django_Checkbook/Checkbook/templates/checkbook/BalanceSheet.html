@@ -14,7 +14,8 @@
 			<h2>RECENT TRANSACTIONS</h2>
 
 			<table class="table table-responsive" id ="transactions-table"> 
-				<!-- Replace this with the Django populated transactions -->
+				{% csrf_token %}
+				{{ form.account }}
 				<tr id="headerRow">
 					<th>Date</th>
 					<th>Type</th>
@@ -31,5 +32,6 @@
 					<td class="right">{{ total }}</td>
 				</tr>
 				{% endfor %}
+			</table>
 {% endblock %}
 
